@@ -18,6 +18,17 @@ private:
 public:
     DoubleLinkedList() : head(nullptr) {}
 
+    void insertAtBeginning(int data){
+        Node* newNode = new Node(data);
+
+        // Insert at the beginning 
+        newNode->next = head;
+        if (head){
+            head->prev = newNode;
+        }
+        head = newNode;
+    }
+
     // Function to insert a node at the end of the list
     void insertAtEnd(int data) {
         Node* newNode = new Node(data);
@@ -42,12 +53,14 @@ public:
     void insertAtLocation(int data, int position) {
         Node* newNode = new Node(data);
 
+        // Validation if the position is smaller than 0
         if (position <= 0) {
             // Invalid position
             std::cerr << "Invalid position\n";
             return;
         }
 
+        // Invalid position if no head and position is bigger than 1
         if (!head && position > 1) {
             // Invalid position for an empty list
             std::cerr << "Invalid position\n";
@@ -109,5 +122,51 @@ int main() {
     dll.insertAtLocation(5, 1);
     dll.displayList();  // Output: 5 1 4 2 3
 
+    dll.insertAtBeginning(12);
+    dll.displayList(); // Output: 12 5 1 4 2 3 
+
     return 0;
 }
+
+
+/*
+procedure insertAtLocation(data, position):
+    Allocate newNode Data
+
+    // Validation if the position is smaller than 0
+    if position <= 0:
+        // Invalid position
+        notify user and terminate
+
+    // Invalid position if no head and position is bigger than 1
+    if not head and position > 1:
+        // Invalid position for an empty list
+        notify user and terminate
+
+    if position == 1:
+        // Insert at the beginning
+        newNode.next = head
+        if head:
+            head.prev = newNode
+        head = newNode
+    else:
+        // Insert at the specified position
+        temp = head
+        i = 1
+        while i < position - 1 and temp:
+            temp = temp.next
+            i += 1
+
+        if not temp:
+            // Invalid position
+            print("Invalid position")
+            return
+
+        newNode.next = temp.next
+        newNode.prev = temp
+        if temp.next:
+            temp.next.prev = newNode
+        temp.next = newNode
+
+
+*/
