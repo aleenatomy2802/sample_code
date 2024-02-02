@@ -8,6 +8,7 @@ public:
     Node* next;
 
     Node(int val) : data(val), prev(nullptr), next(nullptr) {}
+    // Constructor 
 };
 
 // DoubleLinkedList class represents the double-linked list
