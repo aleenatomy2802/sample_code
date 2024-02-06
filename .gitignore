@@ -1,6 +1,7 @@
 driver
 *.exe
 *.py
+*.html
 driver_*
 .DS_Store/
 .vscode/
