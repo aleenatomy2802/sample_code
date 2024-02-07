@@ -18,11 +18,11 @@ public:
     static int fibonacci(int n) {
         cout << n << ", " ;
         if (n <= 1)
-        { return n;}
-        else{
-            return (fibonacci(n-1) + fibonacci(n-2));
-        }    
-
+        {
+            cout << endl;
+            return n;
+        }
+        return fibonacci(n-1) + fibonacci(n-2); 
     }
 
     // 3. Sum of Natural Numbers
@@ -101,43 +101,43 @@ public:
 
 int main() {
     // Demonstrating the factorial function 
-    // cout << "Factorial of 5: " << endl;
-    // cout << RecursiveAlgorithms::factorial(5) << endl;
+    cout << "Factorial of 5: " << endl;
+    cout << RecursiveAlgorithms::factorial(5) << endl;
 
     // Demonstrating the Fibonacci function
-    // cout << "Fibonacci of 5: " << endl;
-    // cout << RecursiveAlgorithms::fibonacci(144) << endl;
+    cout << "Fibonacci of 5: " << endl;
+    cout << RecursiveAlgorithms::fibonacci(5) << endl;
 
     // Demonstrating the sum of natural numbers
-    // cout << "Sum of first 5 natural numbers: " << endl;
-    // cout << endl << RecursiveAlgorithms::sumOfNaturalNumbers(5) << endl;
+    cout << "Sum of first 5 natural numbers: " << endl;
+    cout << endl << RecursiveAlgorithms::sumOfNaturalNumbers(5) << endl;
 
     // Demonstrating power calculation
-    // cout << "2 raised to the power 3: " << endl;
-    // cout << RecursiveAlgorithms::power(2, 3) << endl;
+    cout << "2 raised to the power 3: " << endl;
+    cout << RecursiveAlgorithms::power(2, 3) << endl;
 
     // Demonstrating GCD (Greatest Common Divisor) calculation
     cout << "GCD of 48 and 18: " << endl;
     cout << RecursiveAlgorithms::gcd(48, 18) << endl;
 
-    // // Demonstrating string reversal
-    // string str = "hello";
-    // RecursiveAlgorithms::reverseString(str, 0, str.length() - 1);
-    // cout << "Reversed string: " << str << endl;
+    // Demonstrating string reversal
+    string str = "hello";
+    RecursiveAlgorithms::reverseString(str, 0, str.length() - 1);
+    cout << "Reversed string: " << str << endl;
 
-    // // Checking if a string is a palindrome
-    // string palindrome = "radar";
-    // cout << "Is 'radar' a palindrome? " << RecursiveAlgorithms::isPalindrome(palindrome, 0, palindrome.length() - 1) << endl;
+    // Checking if a string is a palindrome
+    string palindrome = "radar";
+    cout << "Is 'radar' a palindrome? " << RecursiveAlgorithms::isPalindrome(palindrome, 0, palindrome.length() - 1) << endl;
 
-    // // Demonstrating the Tower of Hanoi puzzle solution
-    // cout << "Tower of Hanoi for 3 disks: " << endl;
-    // RecursiveAlgorithms::towerOfHanoi(3, 'A', 'C', 'B');
+    // Demonstrating the Tower of Hanoi puzzle solution
+    cout << "Tower of Hanoi for 3 disks: " << endl;
+    RecursiveAlgorithms::towerOfHanoi(3, 'A', 'C', 'B');
 
-    // // Demonstrating Binary Search in a sorted array
-    // vector<int> searchArr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    // int x = 7;
-    // int result = RecursiveAlgorithms::binarySearch(searchArr, 0, searchArr.size() - 1, x);
-    // cout << "Element " << x << " is at index: " << result << endl;
+    // Demonstrating Binary Search in a sorted array
+    vector<int> searchArr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int x = 7;
+    int result = RecursiveAlgorithms::binarySearch(searchArr, 0, searchArr.size() - 1, x);
+    cout << "Element " << x << " is at index: " << result << endl;
 
     return 0;
 }
