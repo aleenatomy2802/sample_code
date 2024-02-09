@@ -1,126 +1,206 @@
 #include <iostream>
 
+// Node class for double linked list
 class Node {
 public:
     int data;
-    Node* prev;
     Node* next;
+    Node* prev; // Reintroduced for double linking
 
-    Node(int value) : data(value), prev(nullptr), next(nullptr) {}
-    // Constructor that set default value
+    Node(int val) : data(val), next(nullptr), prev(nullptr) {}
 };
 
-class DoublyLinkedList {
+// DoubleLinkedList class
+class DoubleLinkedList {
 private:
     Node* head;
-    Node* tail;
 
 public:
-    DoublyLinkedList() : head(nullptr), tail(nullptr) {}
+    DoubleLinkedList() : head(nullptr) {}
 
-    /*
-    Node* newNode = new Node(data);: This line creates a new node with the given data value. 
-    The newNode is a pointer to the newly allocated node in the memory.
-
-    if (!head) { ... } else { ... }: 
-    This conditional statement checks whether the list is empty or not.
-
-    If the list is empty (if (!head)), it means there are no nodes in the list. In this case, the function sets both the head and tail pointers to the new node (newNode). This is because, when the list is empty, the new node becomes both the first and the last node in the list.
-
-    If the list is not empty (else part), it means there are already nodes in the list. In this case:
-
-    newNode->next = head;: The next pointer of the new node is set to point to the current head of the list. This step links the new node to the existing list.
-    head->prev = newNode;: The prev pointer of the current head of the list is set to point back to the new node. This step establishes the backward link from the existing head to the new node.
-    head = newNode;: The head pointer is updated to point to the new node, making the new node the new head of the list.
-    */
+    // Method to insert a node at the beginning of the list
     void insertAtBeginning(int data) {
         Node* newNode = new Node(data);
-        if (!head) {
-            head = tail = newNode;
-        } else {
-            newNode->next = head;
+        newNode->next = head;
+        if (head != nullptr) {
             head->prev = newNode;
-            head = newNode;
         }
+        head = newNode;
     }
 
+    // Method to insert a node at the end of the list
     void insertAtEnd(int data) {
         Node* newNode = new Node(data);
-        if (!tail) {
-            head = tail = newNode;
+        if (head == nullptr) {
+            head = newNode;
         } else {
-            newNode->prev = tail;
-            tail->next = newNode;
-            tail = newNode;
+            Node* temp = head;
+            while (temp->next != nullptr) {
+                temp = temp->next;
+            }
+            temp->next = newNode;
+            newNode->prev = temp;
         }
     }
 
-    void insertAtPosition(int data, int position) {
-        Node* newNode = new Node(data);
+    // Method to insert a node at a specified location
+    void insertAtLocation(int data, int position) {
         if (position <= 0) {
             std::cerr << "Invalid position\n";
             return;
         }
 
-        if (!head && position > 1) {
-            std::cerr << "Invalid position\n";
-            return;
-        }
-
+        Node* newNode = new Node(data);
         if (position == 1) {
             newNode->next = head;
-            if (head) {
+            if (head != nullptr) {
                 head->prev = newNode;
             }
             head = newNode;
         } else {
             Node* temp = head;
-            int i = 1;
-            while (i < position - 1 && temp) {
+            for (int i = 1; temp != nullptr && i < position - 1; i++) {
                 temp = temp->next;
-                ++i;
             }
 
-            if (!temp) {
+            if (temp == nullptr) {
                 std::cerr << "Invalid position\n";
                 return;
             }
 
             newNode->next = temp->next;
             newNode->prev = temp;
-            if (temp->next) {
+            if (temp->next != nullptr) {
                 temp->next->prev = newNode;
             }
             temp->next = newNode;
         }
     }
 
-    void display() {
-        Node* current = head;
-        while (current) {
-            std::cout << current->data << " ";
-            current = current->next;
+    // Method to update a node's value by position
+    void update(int position, int newData) {
+        Node* temp = head;
+        for (int i = 1; temp != nullptr && i < position; i++) {
+            temp = temp->next;
         }
-        std::cout << std::endl;
+
+        if (temp != nullptr) {
+            temp->data = newData;
+        } else {
+            std::cerr << "Invalid position\n";
+        }
+    }
+
+    // Method to delete a node by position
+    void deleteByPosition(int position) {
+        if (head == nullptr) return;
+
+        Node* temp = head;
+        if (position == 1) {
+            head = temp->next;
+            if (head != nullptr) {
+                head->prev = nullptr;
+            }
+            delete temp;
+            return;
+        }
+
+        for (int i = 1; temp != nullptr && i < position; i++) {
+            temp = temp->next;
+        }
+
+        if (temp == nullptr) {
+            std::cerr << "Invalid position\n";
+            return;
+        }
+
+        if (temp->next != nullptr) {
+            temp->next->prev = temp->prev;
+        }
+        if (temp->prev != nullptr) {
+            temp->prev->next = temp->next;
+        }
+
+        delete temp;
+    }
+
+    // Method to check if the list is empty
+    bool isEmpty() const {
+        return head == nullptr;
+    }
+
+    // Method to clear the list
+    void clear() {
+        Node* current = head;
+        while (current != nullptr) {
+            Node* next = current->next;
+            delete current;
+            current = next;
+        }
+        head = nullptr;
+    }
+
+    // Method to search for a value in the list
+    bool search(int value) const {
+        Node* temp = head;
+        while (temp != nullptr) {
+            if (temp->data == value) {
+                return true;
+            }
+            temp = temp->next;
+        }
+        return false;
+    }
+
+    // Method to display the contents of the list
+    void displayList() {
+        Node* temp = head;
+        while (temp != nullptr) {
+            std::cout << temp->data << " ";
+            temp = temp->next;
+        }
+        std::cout << "\n";
     }
 };
 
 int main() {
-    DoublyLinkedList myList;
+    // Example usage of the enhanced DoubleLinkedList class
+    DoubleLinkedList dll;
 
-    std::cout << "Doubly Linked List before insert: ";
-    myList.display();
+    // Your test cases here
+    // Use insert, update, delete, isEmpty, clear, search methods to demonstrate their functionality.
+    std::cout << "Inserting at the end: 1, 2, 3" << std::endl;
+    dll.insertAtEnd(1);
+    dll.insertAtEnd(2);
+    dll.insertAtEnd(3);
+    dll.displayList();  // Expected Output: 1 2 3
 
-    myList.insertAtBeginning(1);
-    myList.insertAtBeginning(2);
-    myList.insertAtEnd(4);
+    std::cout << "Inserting at the beginning: 0" << std::endl;
+    dll.insertAtBeginning(0);
+    dll.displayList();  // Expected Output: 0 1 2 3
 
-    std::cout << "Doubly Linked List after insertion: ";
-    myList.display();
+    std::cout << "Updating value at position 3 to 9" << std::endl;
+    dll.update(3, 9);
+    dll.displayList();  // Expected Output: 0 1 9 2 3
 
-    myList.insertAtPosition(3, 3);
-    std::cout << "Doubly Linked List after insertion at position 3: ";
-    myList.display();
+    std::cout << "Deleting node at position 4" << std::endl;
+    dll.deleteByPosition(4);
+    dll.displayList();  // Expected Output: 0 1 9 3
 
+    std::cout << "Is the list empty? " << (dll.isEmpty() ? "Yes" : "No") << std::endl;
+    // Expected Output: No
+
+    std::cout << "Searching for value 3 in the list: " << (dll.search(3) ? "Found" : "Not Found") << std::endl;
+    // Expected Output: Found
+
+    std::cout << "Searching for value 5 in the list: " << (dll.search(5) ? "Found" : "Not Found") << std::endl;
+    // Expected Output: Not Found
+
+    std::cout << "Clearing the list." << std::endl;
+    dll.clear();
+    dll.displayList();  // Expected Output: (nothing)
+
+    std::cout << "Is the list empty now? " << (dll.isEmpty() ? "Yes" : "No") << std::endl;
+    // Expected Output: Yes
     return 0;
 }
