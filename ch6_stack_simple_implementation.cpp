@@ -5,6 +5,8 @@ public:
     int data;
     Node* next;
 
+    // Constructor
+    // 
     Node(int data) : data(data), next(nullptr) {}
 };
 
