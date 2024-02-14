@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdexcept> // Includes std::runtime_error
 
 class Node {
 public:

@@ -13,3 +13,15 @@
 ```bash
 g++ -std=c++17 ch5_recursion_problem_solving.cpp -o driver
 ```
+## Exam:
+1. OOP
+2. Linked List:
+    - Single
+    - Double
+    - Head, Tails
+3. Recursive:
+4. Polymorphism:
+    - Class and Object: getter and setter
+    - virtual class
+    
+5. Exception Handling

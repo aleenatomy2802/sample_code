@@ -1,3 +1,5 @@
+// https://en.cppreference.com/w/cpp/container/vector
+
 #include <iostream>
 #include <vector>
 using namespace std;
