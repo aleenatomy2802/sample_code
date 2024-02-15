@@ -13,15 +13,33 @@
 ```bash
 g++ -std=c++17 ch5_recursion_problem_solving.cpp -o driver
 ```
-## Exam:
+## Exam1:
 1. OOP
-2. Linked List:
+2. Linked List (InsertAtBeginning (or the Ends), Update, Delete, IsEmpty ):
     - Single
     - Double
-    - Head, Tails
+    - Head, Tails concepts
+
 3. Recursive:
+    - Basic Recursive concept:
+        - Base Case and recursive case
+    - Methods:
+        
 4. Polymorphism:
-    - Class and Object: getter and setter
-    - virtual class
+    - Class and Object: getter and setter, private, public, protected (concept + code)
+    - virtual class? (Concept + code)
+    - Inheritance? (Concept + Code)
+    - Multiple inheritance? (Concept + Code)
     
-5. Exception Handling
+5. Exception Handling (Concept+ Code):
+    - try block
+    - catch block
+    - thrown statement
+
+6. Sorted List (Concept + Code):
+    - Linked List Implementation (Concept + Code)
+    - Array Implementation (Concept + Code)
+
+7. Stack (CC):
+    - ADT Stack
+    - Stack Node functions (Push, Pop, Peek, Isempty)
