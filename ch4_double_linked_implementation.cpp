@@ -93,9 +93,11 @@ public:
 
     // Method to delete a node by position
     void deleteByPosition(int position) {
+        // Special case
         if (head == nullptr) return;
 
-        Node* temp = head;
+        Node* temp = head; // Traversal
+
         if (position == 1) {
             head = temp->next;
             if (head != nullptr) {
@@ -108,12 +110,12 @@ public:
         for (int i = 1; temp != nullptr && i < position; i++) {
             temp = temp->next;
         }
-
+        // Special case tails or you do st wrong
         if (temp == nullptr) {
             std::cerr << "Invalid position\n";
             return;
         }
-
+        
         if (temp->next != nullptr) {
             temp->next->prev = temp->prev;
         }

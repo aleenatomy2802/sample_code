@@ -14,10 +14,10 @@
 g++ -std=c++17 ch5_recursion_problem_solving.cpp -o driver
 ```
 ## Exam1:
-1. OOP
-2. Linked List (InsertAtBeginning (or the Ends), Update, Delete, IsEmpty ):
-    - Single
-    - Double
+1. OOP (Concept Only)
+2. Linked List:
+    - Single (InsertAtBeginning (or the Ends), Update, Delete, IsEmpty )
+    - Double(InsertAtBeginning (or the Ends), Update, Delete, IsEmpty )
     - Head, Tails concepts
 
 3. Recursive:
