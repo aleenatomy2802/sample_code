@@ -1,3 +1,5 @@
+#include <iostream>
+
 /**
  *Virtual (in the context of C++)
  * Virtual Functions:
@@ -33,6 +35,7 @@ int add(int a, int b);
 
 int main() {
     int result = add(3, 4);  // Function call based on the prototype
+    std::cout << result << std::endl;
     return 0;
 }
 
