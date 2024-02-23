@@ -163,7 +163,7 @@ int main() {
     int array[] = {8, 3, 7, 2, 6, 11, 14, 8, 9};
     int array2[] = {2,3,6,7,8,8,9,11,14};
     int target = 14;
-    size = sizeof(array2);
+    size = sizeof(array2)/sizeof(array2[0]);
     int result = binarySearch(array2, size, target);
     if (result != -1) 
         std::cout << "Element found at index: " << result << std::endl;
