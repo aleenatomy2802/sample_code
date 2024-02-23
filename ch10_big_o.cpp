@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 
-const bool _DEBUG_ = true;
+const bool _DEBUG_ = false;
 
 /*
     O(1) - Constant Time
@@ -48,6 +48,7 @@ int binarySearch(int arr[], int size, int target) {
     int high = size - 1;
     while (low <= high) {
         int mid = low + (high - low) / 2;
+        std::cout << arr[mid];
         if (arr[mid] == target) return mid;
         else if (arr[mid] < target) low = mid + 1;
         else high = mid - 1;
@@ -62,6 +63,11 @@ void displayVector(const std::vector<int>& arr) {
     std::cout << std::endl;
 }
 
+void display_arr(int arr[], int size){
+    for(int i=0; i<size; i++){
+        std::cout << arr[i] << " ";
+    }
+}
 // Helper functions for Merge Sort (O(n log n))
 // Devide and conquer algorithm
 void merge(std::vector<int>& arr, int left, int mid, int right) {
@@ -70,7 +76,7 @@ void merge(std::vector<int>& arr, int left, int mid, int right) {
     
     if (_DEBUG_ == true){
         std::cout << "new merge call" << std::endl; 
-        displayVector(arr);
+        displayVector(arr); //1
     }
 
     std::vector<int> leftArray(subArrayOne), rightArray(subArrayTwo);
@@ -78,14 +84,14 @@ void merge(std::vector<int>& arr, int left, int mid, int right) {
     for (auto i = 0; i < subArrayOne; i++){
         leftArray[i] = arr[left + i];
         if (_DEBUG_ == true){
-            displayVector(arr);
+            displayVector(arr); //2
         }
     }
 
     for (auto j = 0; j < subArrayTwo; j++){
         rightArray[j] = arr[mid + 1 + j];
         if (_DEBUG_ == true){
-            displayVector(arr);
+            displayVector(arr); //3
         }
     }
 
@@ -154,8 +160,11 @@ int main() {
 
     // Test O(log n)
     std::cout << "\nO(log n) - Logarithmic Time Example (Binary Search): " << std::endl;
-    int target = 5;
-    int result = binarySearch(arr, size, target);
+    int array[] = {8, 3, 7, 2, 6, 11, 14, 8, 9};
+    int array2[] = {2,3,6,7,8,8,9,11,14};
+    int target = 14;
+    size = sizeof(array2);
+    int result = binarySearch(array2, size, target);
     if (result != -1) 
         std::cout << "Element found at index: " << result << std::endl;
     else 
