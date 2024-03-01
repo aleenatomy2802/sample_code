@@ -191,8 +191,8 @@ Using head and tail pointers simplifies operations such as insertion and deletio
     - thrown statement
 
 6. Sorted List (Concept + Code):
-    - Linked List Implementation (Concept + Code)
-    - Array Implementation (Concept + Code)
+    - Linked List Implementation (Concept + Code) (insert)
+    - Array Implementation (Concept + Code) (insert)
 
 7. Stack (CC):
     - ADT Stack
