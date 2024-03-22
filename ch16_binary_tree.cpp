@@ -21,7 +21,7 @@
             |   `-- Depth First Traversal/
             |       |-- In-order Traversal: Left - Root - Right (LEFT, DATA, RIGHT) (SORTED LIST)
             |       |-- Pre-order Traversal: Root - Left - Right (DATA, LEFT, RIGHT)
-            |       `-- Post-order Traversal: Left - Right - Root
+            |       `-- Post-order Traversal: Left - Right - Root (LEFT, RIGHT, DATA)
 */
 
 #include <iostream>
