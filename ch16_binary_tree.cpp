@@ -6,9 +6,9 @@
             |-- Traversal/
             |   |-- Bread First Traversal
             |   `-- Depth First Traversal/
-            |       |-- In-order Traversal: Left - Root - Right (LEFT, DATA, RIGHT)
-            |       |-- Pre-order Traversal: Root - Left - Right (DATA, LEFT, RIGHT)
-            |       `-- Post-order Traversal: Left - Right - Root
+            |       |-- In-order Traversal: Left - Root - Right (LEFT, <DATA>, RIGHT)
+            |       |-- Pre-order Traversal: Root - Left - Right (<DATA>, LEFT, RIGHT)
+            |       `-- Post-order Traversal: Left - Right - Root (LEFT, RIGHT, <DATA>)
             `-- Features/
                 |-- Insert a Node
                 |-- Update Data in a Node
