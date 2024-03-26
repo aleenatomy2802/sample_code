@@ -125,5 +125,45 @@ Understanding these basic concepts is essential for navigating more complex data
 
 Each traversal method offers a different view of the tree's nodes and can be chosen based on the specific needs of the problem you are trying to solve. Depth-first traversals are often implemented using recursion, while breadth-first traversal is typically implemented using a queue.
 
+```
+/**
+ * .
+`-- Graph/
+    `-- Tree/
+        `-- Binary Tree/ (balance, complete, B(n)<=1)
+            |-- Traversal/
+            |   |-- Bread First Traversal
+            |   `-- Depth First Traversal/
+            |       |-- In-order Traversal: Left - Root - Right (LEFT, <DATA>, RIGHT)
+            |       |-- Pre-order Traversal: Root - Left - Right (<DATA>, LEFT, RIGHT)
+            |       `-- Post-order Traversal: Left - Right - Root (LEFT, RIGHT, <DATA>)
+            `-- Features/
+            |   |-- Insert a Node
+            |   |-- Update Data in a Node
+            |   |-- Delete a Node
+            |   |-- Display Tree
+            |    `-- Search for Data (Binary Search)
+            `-- Binary Search Tree/ (left data < right data)
+               |-- Traversal/
+               |   |-- Bread First Traversal
+               |   `-- Depth First Traversal/
+               |       |-- In-order Traversal: Left - Root - Right (LEFT, DATA, RIGHT) (SORTED LIST)
+               |       |-- Pre-order Traversal: Root - Left - Right (DATA, LEFT, RIGHT)
+               |       `-- Post-order Traversal: Left - Right - Root (LEFT, RIGHT, DATA)
+               `-- AVL Tree/ (left data < right data; self rotation)
+                  |-- Traversal/
+                  |   |-- Bread First Traversal
+                  |   `-- Depth First Traversal
+                  `-- Tree Rotations/ (B(n)>1)
+                     |-- Left Heavy/
+                     |  |-- Right Rotation
+                     |  `-- Left-Right Rotation
+                     `-- Right Heavy/
+                        |-- Left Rotation
+                        `-- Right-Left Rotation
+*/
+
+```
+
 ## References: 
 1. [Tree Traversal](https://www.youtube.com/watch?v=9RHO6jU--GU)
