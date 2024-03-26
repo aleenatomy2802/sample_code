@@ -119,12 +119,26 @@ Understanding these basic concepts is essential for navigating more complex data
 
 ### Breadth-First Traversal
 
-4. **Level-order Traversal**:
+**Level-order Traversal**:
    - Visit nodes level by level from top to bottom.
    - This method is useful for printing the tree in level order or solving problems that require visiting nodes in a level-wise manner.
 
 Each traversal method offers a different view of the tree's nodes and can be chosen based on the specific needs of the problem you are trying to solve. Depth-first traversals are often implemented using recursion, while breadth-first traversal is typically implemented using a queue.
 
+### AVL Tree Balance Factor
+The balance factor of a node in an AVL (Adelson-Velsky and Landis) tree is calculated as the height of its left subtree minus the height of its right subtree. This balance factor is used to maintain the AVL tree's balance property, ensuring that the difference in heights of the left and right subtrees of any node is no more than 1. The balance factor can be -1, 0, or +1 for a balanced AVL tree, indicating that the right subtree is taller, both subtrees are of equal height, or the left subtree is taller, respectively.
+
+#### Formula:
+Here's the formula for calculating the balance factor BF of a node:
+
+      BF(node)=Height(LeftSubtree)−Height(RightSubtree)
+
+#### Calculating Heights:
+To apply this formula, you first need a way to calculate the height of a subtree. The height of a subtree is the length of the longest path from the root of the subtree to a leaf node. A leaf node (a node with no children) has a height of 0, and a null pointer (indicating no subtree) has a height of -1 by convention to simplify calculations.
+
+![AVL Trees Simply Rotation](https://www.youtube.com/watch?v=zP2xbKerIds&list=PLhXWHUoid1m3zVo6FxctHykQr81reE9hX)
+
+### Structure of Graph & Tree family
 ```
 /**
  * .
