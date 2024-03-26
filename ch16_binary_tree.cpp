@@ -25,6 +25,7 @@
 */
 
 #include <iostream>
+#include <queue>
 using namespace std;
 
 class TreeNode {
@@ -117,6 +118,28 @@ private:
         cout << node->value << " ";
     }
 
+    void printLevelOrder(TreeNode* root) {
+    if (!root) return;
+
+    queue<TreeNode*> q;
+    q.push(root);
+
+    while (!q.empty()) {
+        int levelSize = q.size();
+
+        for (int i = 0; i < levelSize; i++) {
+            TreeNode* node = q.front();
+            q.pop();
+
+            cout << node->value << " ";
+
+            if (node->left) q.push(node->left);
+            if (node->right) q.push(node->right);
+        }
+        cout << endl; // New line for each level
+    }
+}
+
 public:
     BinarySearchTree() : root(nullptr) {}
 
@@ -155,6 +178,13 @@ public:
         postOrderTraversal(root);
         cout << endl;
     }
+
+    void printLevelOrder(){
+        printLevelOrder(root);
+        cout << endl;
+    }
+
+    
 };
 
 int main() {
@@ -166,15 +196,22 @@ int main() {
     bst.insert(40);
     bst.insert(60);
     bst.insert(80);
+    // bst.insert(51);
+    // bst.insert(32);
+    // bst.insert(73);
+    // bst.insert(202);
+    // bst.insert(4);
+    // bst.insert(61);
+    // bst.insert(89);
 
-    cout << "In-order traversal: ";
-    bst.inOrderTraversal();
+    // cout << "In-order traversal: ";
+    // bst.inOrderTraversal();
 
-    cout << "Pre-order traversal: ";
-    bst.preOrderTraversal();
+    // cout << "Pre-order traversal: ";
+    // bst.preOrderTraversal();
 
-    cout << "Post-order traversal: ";
-    bst.postOrderTraversal();
+    // cout << "Post-order traversal: ";
+    // bst.postOrderTraversal();
 
     cout << "Searching for 40: " << (bst.search(40) ? "Found" : "Not found") << endl;
 
@@ -185,6 +222,8 @@ int main() {
     bst.deleteNode(45);
     cout << "After deleting 45 and in-order traversal: ";
     bst.inOrderTraversal();
+
+    bst.printLevelOrder();
 
     return 0;
 }
