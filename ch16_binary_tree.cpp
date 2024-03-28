@@ -156,7 +156,7 @@ public:
     }
 
     void deleteNode(int value) {
-        root = deleteNode(root, value);
+        rootin = deleteNode(root, value);
     }
 
     void update(int oldValue, int newValue) {
