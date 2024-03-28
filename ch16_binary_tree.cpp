@@ -156,7 +156,7 @@ public:
     }
 
     void deleteNode(int value) {
-        rootin = deleteNode(root, value);
+        root = deleteNode(root, value);
     }
 
     void update(int oldValue, int newValue) {
@@ -196,33 +196,28 @@ int main() {
     bst.insert(40);
     bst.insert(60);
     bst.insert(80);
-    // bst.insert(51);
-    // bst.insert(32);
-    // bst.insert(73);
-    // bst.insert(202);
-    // bst.insert(4);
-    // bst.insert(61);
-    // bst.insert(89);
 
-    // cout << "In-order traversal: ";
-    // bst.inOrderTraversal();
+    cout << "In-order traversal: ";
+    bst.inOrderTraversal();
 
-    // cout << "Pre-order traversal: ";
-    // bst.preOrderTraversal();
+    cout << "Pre-order traversal: ";
+    bst.preOrderTraversal();
 
-    // cout << "Post-order traversal: ";
-    // bst.postOrderTraversal();
+    cout << "Post-order traversal: ";
+    bst.postOrderTraversal();
 
     cout << "Searching for 40: " << (bst.search(40) ? "Found" : "Not found") << endl;
 
     bst.update(40, 45);
-    cout << "After updating 40 to 45 and in-order traversal: ";
-    bst.inOrderTraversal();
+    cout << "After updating 40 to 45 and print level traversal: ";
+    cout << endl;
+    //bst.inOrderTraversal();
+    bst.printLevelOrder();
 
     bst.deleteNode(45);
-    cout << "After deleting 45 and in-order traversal: ";
-    bst.inOrderTraversal();
-
+    cout << "After deleting 45 and print level traversal: ";
+    cout << endl;
+    //bst.inOrderTraversal();
     bst.printLevelOrder();
 
     return 0;
