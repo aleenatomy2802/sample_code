@@ -148,12 +148,6 @@ To apply this formula, you first need a way to calculate the height of a subtree
             |-- Traversal/
             |   |-- Bread First Traversal
             |   `-- Depth First Traversal/
-            `-- Features/
-            |   |-- Insert a Node
-            |   |-- Update Data in a Node
-            |   |-- Delete a Node
-            |   |-- Display Tree
-            |    `-- Search for Data (Binary Search)
             `-- Binary Search Tree/ (left data < right data)
                |-- Traversal/
                |   |-- Bread First Traversal
@@ -167,7 +161,7 @@ To apply this formula, you first need a way to calculate the height of a subtree
                   |   `-- Depth First Traversal
                   `-- Tree Rotations/ (B(n)>1)
                      |-- Left Heavy/
-                     |  |-- Right Rotation
+                     |  |-- Right Rotation (-2,-1)
                      |  `-- Left-Right Rotation
                      `-- Right Heavy/
                         |-- Left Rotation
