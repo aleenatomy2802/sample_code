@@ -86,27 +86,43 @@ private:
      * }
     */
     TreeNode* deleteNode(TreeNode* node, int value) {
-        if (!node) return nullptr;
-        if (value < node->value) {
-            node->left = deleteNode(node->left, value);
-        } else if (value > node->value) {
-            node->right = deleteNode(node->right, value);
-        } else {
-            if (!node->left) {
-                TreeNode* temp = node->right;
-                delete node;
-                return temp;
-            } else if (!node->right) {
-                TreeNode* temp = node->left;
-                delete node;
-                return temp;
+        // Base case: If node is null, return null
+        if (!node) return nullptr; 
+
+        // If value is less than current node's value, go left
+        if (value < node->value) { 
+            // Recursive call on left subtree
+            node->left = deleteNode(node->left, value); 
+        } 
+        // If value is greater than current node's value, go right
+        else if (value > node->value) { 
+            // Recursive call on right subtree
+            node->right = deleteNode(node->right, value); 
+        } // Node found: value matches current node's value
+        else { 
+            // Explicit check for node found
+            if (value == node->value) { 
+                // Node check for no left child
+                if (!node->left) {
+                    TreeNode* temp = node->right; // Save right child
+                    // Delete current node
+                    delete node; 
+                    // Return right child
+                    return temp; 
+                } else if (!node->right) { // Node check for no right child
+                    TreeNode* temp = node->left; // Save left child
+                    delete node; // Delete current node
+                    return temp; // Return left child
+                }
+                // Node has both children
+                TreeNode* temp = findMinimum(node->right); // Find minimum value in right subtree (successor)
+                node->value = temp->value; // Replace current node's value with successor's value
+                node->right = deleteNode(node->right, temp->value); // Recursive call to delete successor from right subtree
             }
-            TreeNode* temp = findMinimum(node->right);
-            node->value = temp->value;
-            node->right = deleteNode(node->right, temp->value);
         }
-        return node;
+    return node; // Return current node (or its replacement) to maintain BST structure
     }
+
 
     void inOrderTraversal(TreeNode* node) {
         if (!node) return;
