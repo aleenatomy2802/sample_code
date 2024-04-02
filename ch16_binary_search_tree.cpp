@@ -175,16 +175,20 @@ public:
         root = insert(root, newValue);
     }
 
+
+    // In-order Traversal: Left - Root - Right (LEFT, DATA, RIGHT) (SORTED LIST)
     void inOrderTraversal() {
         inOrderTraversal(root);
         cout << endl;
     }
 
+    // Pre-order Traversal: Root - Left - Right (DATA, LEFT, RIGHT) (BINARY SEARCH)
     void preOrderTraversal() {
         preOrderTraversal(root);
         cout << endl;
     }
 
+   // Post-order Traversal: Left - Right - Root (LEFT, RIGHT, DATA) (DELETE THE WHOLE-TREE/ CLEAN UP MEMEORY)
     void postOrderTraversal() {
         postOrderTraversal(root);
         cout << endl;
