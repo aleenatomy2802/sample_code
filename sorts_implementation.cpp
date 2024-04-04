@@ -184,3 +184,33 @@ void heapSort(vector<int>& arr) {
 It's often used in scenarios where memory usage needs to be optimized, as it has a space complexity of O(1).
 */
 
+/*
+**Selection Sort**:
+- **Logic**:
+  - Selection Sort works by dividing the array into two sub-arrays: sorted and unsorted.
+  - Initially, the sorted sub-array is empty, and the unsorted sub-array contains all the elements.
+  - In each iteration, Selection Sort finds the smallest (or largest, depending on the sorting order) element from the unsorted sub-array and swaps it with the first element of the unsorted sub-array.
+  - By doing this, the smallest (or largest) element gets placed at its correct position in the sorted sub-array.
+  - This process is repeated until the entire array is sorted.
+
+- **Time Complexity**:
+  - Selection Sort has a time complexity of O(n^2), where n is the number of elements in the array.
+  - This is because, in each iteration, it scans the unsorted part of the array to find the minimum or maximum element, resulting in nested loops.
+
+- **Space Complexity**:
+  - Selection Sort has a space complexity of O(1), meaning it requires constant extra space for temporary variables or swapping elements.
+  - It does not require additional memory proportional to the size of the input array.
+
+- **Use Case**:
+  - Selection Sort is suitable for small datasets or scenarios where simplicity and minimal memory usage are more important than sorting speed.
+  - It's often used for educational purposes due to its simplicity in implementation.
+  - However, Selection Sort is not efficient for large datasets due to its quadratic time complexity. Other sorting algorithms like Quick Sort, Merge Sort, or Heap Sort are preferred for larger datasets.
+
+- **Example**:
+  - Consider an array [5, 3, 8, 2, 1].
+  - In the first iteration, Selection Sort finds the smallest element (1) and swaps it with the first element, resulting in [1, 3, 8, 2, 5].
+  - In the second iteration, it finds the next smallest element (2) and swaps it with the second element, resulting in [1, 2, 8, 3, 5].
+  - This process continues until the entire array is sorted.
+
+Selection Sort is straightforward to implement and understand but is not efficient for large datasets due to its quadratic time complexity. It's generally used for educational purposes or in scenarios where simplicity and minimal memory usage are prioritized over sorting speed.
+*/
