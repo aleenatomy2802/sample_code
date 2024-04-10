@@ -1,3 +1,6 @@
+#include <iostream>
+#include <string>
+
 // Custom hash table class
 class MyDictionary {
 private:
