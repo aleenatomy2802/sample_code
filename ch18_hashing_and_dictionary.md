@@ -48,12 +48,6 @@ While both hashing and encryption add layers of security, they do so in differen
 
 Hashing and salting are both techniques used in the process of storing and verifying data, especially passwords, securely. Although they are used together for enhancing security, they serve different purposes and function in complementary ways.
 
-## Salting
-
-- **Purpose**: Salting is a technique used in conjunction with hashing to enhance security. A salt is a random value that is added to the input of a hash function (e.g., a password) before the hash is computed.
-- **Properties**: The salt is unique for each use of the hash function, typically unique for each user's password. It is stored in plaintext alongside the hash value in the database. The same password by two different users or the same user at two different times will produce different hash values due to different salts.
-- **Use Case**: Salting prevents attackers from using precomputed dictionaries of hashed values (rainbow tables) to crack passwords. It also ensures that if two users have the same password, their hash values will be different due to the unique salts, making it harder for attackers to guess passwords based on hash values.
-
 ### Hashing vs. Salting: The Relationship
 
 - **Integration**: Salting and hashing are often used together. First, a unique salt is generated and added to the plaintext password. Then, this salted password is passed through a hash function, and the resulting hash (along with the salt) is stored in the database.
