@@ -4,11 +4,6 @@
 
 Hashing is a process used to transform a given input (or 'message') into a fixed-size string of bytes. The output, known as the hash value, digest, or hash code, typically is a sequence of numbers and letters that uniquely represents the input data. Hashing is used in various applications like data retrieval, integrity verification, and cryptography. 
 
-A hash function has certain important properties:
-1. **Deterministic**: The same input will always produce the same output.
-2. **Fast computation**: The hash value is quick to calculate for any given input.
-3. **Non-invertible**: It should be computationally infeasible to reverse the process and recreate the input data from its hash value.
-4. **Collision-resistant**: It should be unlikely for two different inputs to produce the same output hash.
 
 **Use Case**: Hashing is primarily used for securely storing data like passwords. When a password is hashed, the hash value is stored instead of the plaintext password. Upon authentication, the provided password is hashed again, and the resulting hash is compared with the stored hash.
 
@@ -34,76 +29,6 @@ int main() {
 }
 ```
 
-This function iterates over each character in the input string, combining its ASCII value into a cumulative hash value. The choice of `31` as a multiplier is somewhat arbitrary but is a commonly used prime number in hashing algorithms to reduce the chance of collisions.
-
-## Hashing vs. Encryption:
-
-Hashing and encryption are both techniques used in the field of cryptography, but they serve different purposes and operate in distinct ways:
-
-- **Encryption** is designed to securely encode information, making it unreadable without the correct decryption key. Its purpose is to ensure confidentiality. Encryption is a reversible process; given the correct key, the original data can be retrieved from the encrypted content.
-
-- **Hashing**, on the other hand, is used to verify the integrity or authenticity of data. It is a one-way function that converts any size input into a fixed-size output. Unlike encryption, hashing is designed to be irreversible; you cannot obtain the original input from the hash value.
-
-While both hashing and encryption add layers of security, they do so in different contexts. Encryption is about securing data against unauthorized access, while hashing is about validating the integrity of data, ensuring it has not been altered.
-
-Hashing and salting are both techniques used in the process of storing and verifying data, especially passwords, securely. Although they are used together for enhancing security, they serve different purposes and function in complementary ways.
-
-### Hashing vs. Salting: The Relationship
-
-- **Integration**: Salting and hashing are often used together. First, a unique salt is generated and added to the plaintext password. Then, this salted password is passed through a hash function, and the resulting hash (along with the salt) is stored in the database.
-- **Security Enhancement**: While hashing provides a basic level of security by obscuring the plaintext, salting adds an extra layer by making each hash unique. This approach significantly increases the difficulty of cracking passwords through brute force or precomputed attacks.
-
-In summary, while hashing is the fundamental process of converting plaintext into a secure format, salting is an additional step that enhances the security of the hashed data by ensuring that the output is unique even for identical inputs. Together, they provide a robust mechanism for securing sensitive data like passwords.
-
-## Simple Encryption and Decryption with Caesar Cipher
-
-Below is a simple example of encryption and decryption in C++ using a basic and not secure method known as the Caesar cipher for demonstration purposes. For actual security purposes, you should use established libraries and algorithms like AES, RSA, or libraries that handle these securely.
-
-The Caesar cipher is a substitution cipher that shifts the characters of the plaintext by a fixed number of positions down the alphabet. This shift value acts as the key. For simplicity, this example will only work with lowercase letters and will not include salting or hashing since they're not applicable to reversible encryption/decryption processes.
-
-```cpp
-#include <iostream>
-#include <string>
-
-// Function to encrypt the plaintext
-std::string encrypt(const std::string& plaintext, int key) {
-    std::string ciphertext = "";
-
-    for (char c : plaintext) {
-        if (isalpha(c) && islower(c)) {
-            // Encrypt lowercase letters only
-            char encryptedChar = ((c - 'a') + key) % 26 + 'a';
-            ciphertext += encryptedChar;
-        } else {
-            // Directly add non-alphabet characters
-            ciphertext += c;
-        }
-    }
-
-    return ciphertext;
-}
-
-// Function to decrypt the ciphertext
-std::string decrypt(const std::string& ciphertext, int key) {
-    return encrypt(ciphertext, 26 - (key % 26)); // Decrypting is just the reverse operation
-}
-
-int main() {
-    std::string message = "hello, world!";
-    int key = 3; // Example shift value for Caesar cipher
-
-    std::string encryptedMessage = encrypt(message, key);
-    std::string decryptedMessage = decrypt(encryptedMessage, key);
-
-    std::cout << "Original: " << message << std::endl;
-    std::cout << "Encrypted: " << encryptedMessage << std::endl;
-    std::cout << "Decrypted: " << decryptedMessage << std::endl;
-
-    return 0;
-}
-```
-
-This example demonstrates basic encryption and decryption using a very simple algorithm. Note that the Caesar cipher is not secure by modern standards and should not be used for protecting sensitive information. For real-world applications, it's crucial to use established cryptographic standards and libraries that offer robust security features, including secure handling of keys, hashing, salting, and encryption/decryption mechanisms.
 
 ## Map vs. Unordermap
 
@@ -121,7 +46,7 @@ In C++, both `std::map` and `std::unordered_map` are associative containers that
 - **Search Time**: Provides average constant-time complexity (`O(1)`) for search operations, although this can degrade to linear (`O(n)`) in the worst case if there are many hash collisions.
 - **Usage Scenario**: Use `std::unordered_map` when you need faster access and insertion and the order of elements is not important.
 
-### Sample Code
+### Sample Code (NOT ON TEST)
 
 #### Using `std::map`
 
@@ -178,8 +103,6 @@ When deciding between `std::map` and `std::unordered_map`, consider whether the 
 
 ## Relationship Between Hashing and Dictionaries
 
-Hashing is a fundamental concept that underpins the implementation of dictionaries (or hash tables). When you add a key-value pair to a dictionary, the dictionary uses a hash function to convert the key into a hash code. This hash code then determines where the key-value pair is stored in the dictionary's underlying data structure. This process enables the fast retrieval of values based on their keys, as the hash function provides a quick way to go from the key to its associated value.
-
 In summary, hashing is a process or technique, while a dictionary is a data structure. Hashing enables the efficient operation of dictionaries, especially in terms of data retrieval, addition, and deletion based on keys.
 
 ## Open Addressing
@@ -188,7 +111,7 @@ Open addressing stores all entries directly within the array slots of the hash t
 
 Implementing a complete hash table with linear probing, quadratic probing, and double hashing in C++ can be quite involved, but I'll provide simplified examples to illustrate the concepts. These examples are educational and meant to demonstrate the probing techniques. A fully-featured hash table suitable for production use would need more comprehensive error handling, dynamic resizing, and possibly templating for general-purpose use.
 
-### Linear Probing
+### Linear Probing (NO CODE)
 
 Linear probing resolves collisions by moving sequentially through the hash table until an empty slot is found.
 
@@ -233,7 +156,7 @@ public:
 };
 ```
 
-### Quadratic Probing
+### Quadratic Probing (NO CODE)
 
 Quadratic probing reduces clustering by using a quadratic function to calculate the probe sequence.
 
@@ -326,7 +249,6 @@ public:
 };
 ```
 
-Each of these examples demonstrates the core concept of the respective probing strategy. Remember, these are simplified versions to illustrate the probing methods. A complete and robust implementation would include additional features like handling deletion (possibly with a special marker for deleted items), dynamically resizing the hash table when it gets too full, and generic programming to store any type of key-value pairs, not just integers.
 
 ## Hash Table vs Dictionary:
  
@@ -349,11 +271,3 @@ The terms "hash table" and "dictionary" are often used interchangeably in the co
     - The implementation may vary: while many languages use hash tables, others might use trees or other data structures to ensure order or provide different performance guarantees.
     - Efficiency: The performance of a dictionary depends on its underlying implementation but often aims for \(O(1)\) average time complexity for standard operations.
 - **Use Cases**: Dictionaries are used in a wide range of applications, from storing simple configurations to complex data processing. They are a fundamental data structure in many high-level programming languages like Python (`dict`), JavaScript (objects as associative arrays), and C# (`Dictionary`).
-
-### Comparison and Relation
-
-- **Implementation vs. Concept**: The term "hash table" is often used to refer to a specific implementation technique for dictionaries. In contrast, "dictionary" is a more abstract term that refers to the concept of mapping keys to values, regardless of the underlying implementation.
-- **Performance Characteristics**: The performance of a dictionary can vary based on its implementation. Hash tables are generally chosen for their ability to provide fast lookups, insertions, and deletions.
-- **Ordering**: Standard hash tables do not maintain any order of the keys. However, some dictionary implementations, like Python's `OrderedDict` or the standard `dict` in Python 3.7 and later, maintain keys in insertion order or sorted order, using different underlying mechanisms than a plain hash table.
-
-In summary, while the terms can sometimes be used interchangeably, "hash table" refers more to the specific data structure and its implementation, whereas "dictionary" refers to the abstract data type and its interface for mapping keys to values. The choice between using the term "hash table" or "dictionary" often depends on the level of abstraction being discussed and the specific language or context.

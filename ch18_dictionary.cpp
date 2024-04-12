@@ -32,14 +32,14 @@ public:
     // Insert a key-value pair
     void insert(const std::string& key, const std::string& value) {
         int index = hash(key);
-        Node* newNode = new Node(key, value);
-        newNode->next = table[index];
+        Node* newNode = new Node(key, value); // create new node
+        newNode->next = table[index]; 
         table[index] = newNode;
     }
 
     // Search for a key and return its value
     std::string search(const std::string& key) {
-        int index = hash(key);
+        int index = hash(key); // get the index
         Node* curr = table[index];
         while (curr) {
             if (curr->key == key) {
