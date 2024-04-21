@@ -1,5 +1,11 @@
 
-IF YOU SHOW UP AND TRY TO DO THE TEST, I WILL GIVE YOU AT LEAST 40% SCORE
+**IF YOU SHOW UP AND TRY TO ANSWER ALL MY QUESTIONS, I WILL GIVE YOU AT LEAST 40% SCORE**
+
+# FRIENDS
+## CODE
+- LOGIC ONLY
+## QUESTION
+- Understand how to use friend (review and learn use case)
 
 # QUEUE - PRIORITY QUEUE
 ## CODE
@@ -7,21 +13,32 @@ IF YOU SHOW UP AND TRY TO DO THE TEST, I WILL GIVE YOU AT LEAST 40% SCORE
 - ch13_priority_queue (code + logic)
 
 ## QUESTIONS
-- Use case for both
+- What is some popular use cases for queue and priority queue?
 
-# TREE - GRAPH
-## GRAPH:
+# OVERLOAD OPERATOR
+## CODE
+- ch13_overload_operator.cpp (logic)
+- ch13_overload_operator_array.cpp (code + logic)
+
+## QUESTION
+- What is overload operator:  Overloaded operators allow you to define custom behavior for operators (such as +, -, *, /, etc.) when they're applied to instances of your custom classes. 
+
+# GRAPH:
+
+## CODE
 - ch16_graph.cpp (code + logic)
-### CODE
+## QUESTION
+- What is some popular use cases for Graph data structure?
 
-## TREE:
-### CODE:
+# TREE:
+## CODE:
 - ch16_tree.cpp (code+logic)
 - ch16_binary_tree_array.cpp (code+logic)
 - ch16_binary_search_tree.cpp (code+logic)
 - ch16_AVL_tree (logic)
 
-## Introduction
+## QUESTIONS:
+### Introduction
 Tree data structures are fundamental in computer science, used for organizing data in a hierarchical manner. There are several types of tree data structures, each with its unique properties and use cases. Here are some of the most commonly used types:
 
 1. **Binary Tree**: A tree where each node has at most two children, referred to as the left child and the right child.
@@ -34,49 +51,28 @@ Tree data structures are fundamental in computer science, used for organizing da
 
 5. **Heap**: Although not a tree in the traditional sense of a hierarchical data structure, heaps are often implemented as binary trees. They are used to implement priority queues, with the heap property ensuring that the parent node is either greater than or equal to (in a max heap) or less than or equal to (in a min heap) its child nodes.
 
-## Tree Elements
+### Tree Elements
 
-In the context of data structures, these are fundamental elements of a tree
+The elements of a tree in data structures are metaphors borrowed from natural trees, helping to conceptualize the hierarchical organization of data. Here's an overview of the primary elements:
 
-### Node
-
-A tree node is a fundamental part of a tree structure. It represents an individual element or a point in the tree. Each tree node can store data (such as values or information) and has pointers or references to other nodes. These pointers define the relationship between nodes in the tree. Specifically, in a tree structure:
+1. **Node**: A tree node is a fundamental part of a tree structure. It represents an individual element or a point in the tree. Each tree node can store data (such as values or information) and has pointers or references to other nodes. These pointers define the relationship between nodes in the tree. Specifically, in a tree structure:
 
 - **Root Node**: The top node in a tree. It is the only node without a parent.
 - **Parent Node**: A node that has one or more child nodes.
 - **Child Node**: A node that has a parent node to which it is connected.
 - **Siblings**: Nodes that share the same parent.
 
-### Root
+2. **Root**: The **root** is the topmost element of a tree, serving as the origin from which all other elements branch out. There is exactly one root per tree, and it is the only element without a parent. The root serves as the entry point to access any other element within the tree. Nodes in a tree structure are connected in a way that they start from the root node and branch out. The connection between nodes is typically represented by pointers (in languages like C or C++) or references (in languages like Java or Python).
 
-- The **root** is the topmost element of a tree, serving as the origin from which all other elements branch out. There is exactly one root per tree, and it is the only element without a parent. The root serves as the entry point to access any other element within the tree.
+3. **Leaves (Leaf Nodes)**; Leaf nodes are the nodes in a tree that do not have any children. They are the end points of the tree, where the structure terminates. Leaves are important because they represent the simplest form of nodes in the tree, containing data but not leading to any further nodes. In a metaphorical sense, just as leaves on a real tree are at the ends of branches, leaf nodes in a data structure tree are at the ends of the branches of the tree. 
 
-Nodes in a tree structure are connected in a way that they start from the root node and branch out. The connection between nodes is typically represented by pointers (in languages like C or C++) or references (in languages like Java or Python).
+4. **Branch**: A **branch** is not usually defined as a standalone element in data structures but rather as the connections between nodes. In a more abstract sense, a branch can refer to a part of the tree that extends from one node to its children. It symbolizes the relationship and hierarchy between different parts of the tree.
 
-### Leaves (Leaf Nodes)
+5. **Edge**: An **edge** is a connection between two nodes in the tree. It represents the parent-child relationship. The number of edges in a tree is always one less than the number of nodes because every node, except the root, is connected by exactly one incoming edge from its parent.
 
-Leaf nodes are the nodes in a tree that do not have any children. They are the end points of the tree, where the structure terminates. Leaves are important because they represent the simplest form of nodes in the tree, containing data but not leading to any further nodes. In a metaphorical sense, just as leaves on a real tree are at the ends of branches, leaf nodes in a data structure tree are at the ends of the branches of the tree.
+6. **Depth**: The **depth** of a node is the number of edges from the root to the node. The root node has a depth of 0.
 
-The elements of a tree in data structures are metaphors borrowed from natural trees, helping to conceptualize the hierarchical organization of data. Here's an overview of the primary elements:
-
-
-### Branch
-
-- A **branch** is not usually defined as a standalone element in data structures but rather as the connections between nodes. In a more abstract sense, a branch can refer to a part of the tree that extends from one node to its children. It symbolizes the relationship and hierarchy between different parts of the tree.
-
-### Edge
-
-- An **edge** is a connection between two nodes in the tree. It represents the parent-child relationship. The number of edges in a tree is always one less than the number of nodes because every node, except the root, is connected by exactly one incoming edge from its parent.
-
-### Depth
-
-- The **depth** of a node is the number of edges from the root to the node. The root node has a depth of 0.
-
-### Height
-
-- The **height** of a node is the number of edges on the longest path from the node to a leaf. The height of the tree itself is the height of its root node.
-
-Understanding these elements is crucial for working with trees in computer science, whether implementing them for storing data hierarchically, traversing data structures, or solving complex algorithms that require hierarchical data representations.
+7. **Height**: The **height** of a node is the number of edges on the longest path from the node to a leaf. The height of the tree itself is the height of its root node.
 
 ### Properties and Importance
 
@@ -95,11 +91,15 @@ Both nodes and leaves are crucial for understanding and working with trees in co
 
 Understanding these basic concepts is essential for navigating more complex data structures and algorithms, such as binary trees, AVL trees, and B-trees, where the arrangement and operations on nodes and leaves determine the efficiency of data storage, retrieval, and manipulation.
 
-## Tree Traversal
+### Tree Traversal
 [Tree Traversal](https://www.youtube.com/watch?v=9RHO6jU--GU)
 
-### Bread-First Traversals: (LOGIC)
-### Depth-First Traversals: (CODE + LOGIC)
+#### Bread-First Traversals: (LOGIC)
+**Level-order Traversal**:
+   - Visit nodes level by level from top to bottom.
+   - This method is useful for printing the tree in level order or solving problems that require visiting nodes in a level-wise manner.
+
+#### Depth-First Traversals: (CODE + LOGIC)
 
 1. **In-order Traversal**:
    - Visit the left subtree.
@@ -120,10 +120,6 @@ Understanding these basic concepts is essential for navigating more complex data
    - Useful for deleting the tree (since you delete children before the parent) or for postfix notation expressions.
 
 ### Breadth-First Traversal
-
-**Level-order Traversal**:
-   - Visit nodes level by level from top to bottom.
-   - This method is useful for printing the tree in level order or solving problems that require visiting nodes in a level-wise manner.
 
 Each traversal method offers a different view of the tree's nodes and can be chosen based on the specific needs of the problem you are trying to solve. Depth-first traversals are often implemented using recursion, while breadth-first traversal is typically implemented using a queue.
 
@@ -189,17 +185,6 @@ To apply this formula, you first need a way to calculate the height of a subtree
 
 Hashing is a process used to transform a given input into a fixed-size string of bytes, known as the hash value, digest, or hash code. This string typically represents the input data uniquely and is used in various applications like data retrieval, integrity verification, and cryptography.
 
-## Questions and Considerations:
-
-- **Dictionary Mechanism**:
-  - Variant of hashing that puts a key into a hash function to create a memory location.
-- **Understanding Hash Functions**:
-  - What they are and how they can achieve O(1) time complexity.
-- **Collision Detection and Handling**:
-  - Strategies for dealing with hash collisions, including pseudocode examples.
-- **Use of Prime Numbers in Hashing**:
-  - Why prime numbers are often used in the design of hash functions.
-
 ## Map vs. Unordermap
 
 In C++, both `std::map` and `std::unordered_map` are associative containers that store elements formed by a combination of a key value and a mapped value, following a specific order. However, there are fundamental differences in their internal workings, performance characteristics, and the order in which elements are stored.
@@ -243,9 +228,30 @@ The terms "hash table" and "dictionary" are often used interchangeably in the co
 - Quadratic probing reduces clustering by using a quadratic function to calculate the probe sequence.
 - Linear probing resolves collisions by moving sequentially through the hash table until an empty slot is found.
 
-# Search Algorithms
+## Questions and Considerations:
 
-## Binary Search (Code + logic)
+- **Dictionary Mechanism**:
+  - Variant of hashing that puts a key into a hash function to create a memory location.
+- **Understanding Hash Functions**:
+  - What they are and how they can achieve O(1) time complexity.
+- **Collision Detection and Handling**:
+  - Strategies for dealing with hash collisions, including pseudocode examples.
+- **Use of Prime Numbers in Hashing**:
+  - Why prime numbers are often used in the design of hash functions.
+
+# Sort Algorithms
+## CODE
+- sort_implementation.cpp (logic + ploblem solving)
+## QUESTION
+- Solve the Sort by hands.
+
+# Search Algorithms
+## CODE
+- sort_implementation.cpp (Code + logic)
+## QUESTION
+- Solve the Search by hands.
+
+## Binary Search 
 
 - **Precondition**:
   - The array or vector must be sorted.
