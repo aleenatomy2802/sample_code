@@ -10,10 +10,10 @@
 # QUEUE - PRIORITY QUEUE
 ## CODE
 - ch13_queue.cpp (code + logic)
-- ch13_priority_queue (code + logic)
+- ch13_priority_queue (logic)
 
 ## QUESTIONS
-- What is some popular use cases for queue and priority queue?
+- What are some popular use cases for queue and priority queues?
 
 # OVERLOAD OPERATOR
 ## CODE
@@ -21,35 +21,35 @@
 - ch13_overload_operator_array.cpp (code + logic)
 
 ## QUESTION
-- What is overload operator:  Overloaded operators allow you to define custom behavior for operators (such as +, -, *, /, etc.) when they're applied to instances of your custom classes. 
+- What is an overload operator:  Overloaded operators allow you to define custom behavior for operators (such as +, -, *, /, etc.) when they're applied to instances of your custom classes. 
 
 # GRAPH:
 
 ## CODE
 - ch16_graph.cpp (code + logic)
 ## QUESTION
-- What is some popular use cases for Graph data structure?
+- What are some popular use cases for Graph data structure?
 
 # TREE:
 ## CODE:
 - ch16_tree.cpp (code+logic)
 - ch16_binary_tree_array.cpp (code+logic)
-- ch16_binary_search_tree.cpp (code+logic)
+- ch16_binary_search_tree.cpp (logic)
 - ch16_AVL_tree (logic)
 
 ## QUESTIONS:
 ### Introduction
-Tree data structures are fundamental in computer science, used for organizing data in a hierarchical manner. There are several types of tree data structures, each with its unique properties and use cases. Here are some of the most commonly used types:
+Tree data structures are fundamental in computer science, used for hierarchically organizing data. There are several types of tree data structures, each with its unique properties and use cases. Here are some of the most commonly used types:
 
 1. **Binary Tree**: A tree where each node has at most two children, referred to as the left child and the right child.
 
 2. **Binary Search Tree (BST)**: A binary tree where for each node, all elements in the left subtree are less than the node, and all elements in the right subtree are greater. This property enables efficient searching, insertion, and deletion operations.
 
-3. **AVL Tree**: A self-balancing binary search tree where the height of the two child subtrees of any node differ by no more than one. If at any time they differ by more than one, rebalancing is done to restore this property.
+3. **AVL Tree**: A self-balancing binary search tree where the height of the two child subtrees of any node differs by no more than one. If at any time they differ by more than one, rebalancing is done to restore this property.
 
 4. **Red-Black Tree**: Another type of self-balancing binary search tree where each node contains an extra bit for denoting the color of the node, either red or black. It enforces balancing constraints that ensure the tree remains balanced, leading to good worst-case guarantees for insertion, deletion, and lookup operations.
 
-5. **Heap**: Although not a tree in the traditional sense of a hierarchical data structure, heaps are often implemented as binary trees. They are used to implement priority queues, with the heap property ensuring that the parent node is either greater than or equal to (in a max heap) or less than or equal to (in a min heap) its child nodes.
+5. **Heap**: Although not a tree in the traditional sense of a hierarchical data structure, heaps are often implemented as binary trees. They are used to implement priority queues, with the heap property ensuring that the parent node is either greater than or equal to (in a max heap) or less than or equal to (in a min-heap) its child nodes.
 
 ### Tree Elements
 
@@ -69,11 +69,6 @@ The elements of a tree in data structures are metaphors borrowed from natural tr
 4. **Branch**: A **branch** is not usually defined as a standalone element in data structures but rather as the connections between nodes. In a more abstract sense, a branch can refer to a part of the tree that extends from one node to its children. It symbolizes the relationship and hierarchy between different parts of the tree.
 
 5. **Edge**: An **edge** is a connection between two nodes in the tree. It represents the parent-child relationship. The number of edges in a tree is always one less than the number of nodes because every node, except the root, is connected by exactly one incoming edge from its parent.
-
-6. **Depth**: The **depth** of a node is the number of edges from the root to the node. The root node has a depth of 0.
-
-7. **Height**: The **height** of a node is the number of edges on the longest path from the node to a leaf. The height of the tree itself is the height of its root node.
-
 ### Properties and Importance
 
 - **Hierarchical Structure**: Trees are hierarchical data structures. The tree starts with a root node and expands into more nodes, branching out into leaves.
@@ -119,12 +114,8 @@ Understanding these basic concepts is essential for navigating more complex data
    - Visit the root node.
    - Useful for deleting the tree (since you delete children before the parent) or for postfix notation expressions.
 
-### Breadth-First Traversal
-
-Each traversal method offers a different view of the tree's nodes and can be chosen based on the specific needs of the problem you are trying to solve. Depth-first traversals are often implemented using recursion, while breadth-first traversal is typically implemented using a queue.
-
 ### AVL Tree Balance Factor
-The balance factor of a node in an AVL (Adelson-Velsky and Landis) tree is calculated as the height of its left subtree minus the height of its right subtree. This balance factor is used to maintain the AVL tree's balance property, ensuring that the difference in heights of the left and right subtrees of any node is no more than 1. The balance factor can be -1, 0, or +1 for a balanced AVL tree, indicating that the right subtree is taller, both subtrees are of equal height, or the left subtree is taller, respectively.
+The balance factor of a node in an AVL (Adelson-Velsky and Landis) tree is calculated as the height of its left subtree minus the height of its right subtree. This balancing factor is used to maintain the AVL tree's balance property, ensuring that the difference in heights of the left and right subtrees of any node is no more than 1. The balance factor can be -1, 0, or +1 for a balanced AVL tree, indicating that the right subtree is taller, both subtrees are of equal height, or the left subtree is taller, respectively.
 
 #### Formula:
 Here's the formula for calculating the balance factor BF of a node:
@@ -172,7 +163,7 @@ To apply this formula, you first need a way to calculate the height of a subtree
 - Heap? 
 - Max Heap, Min Heap
 - Heap Sort?
-- Reference Only: https://www.codingdrills.com/tutorial/heap-data-structure/introduction-to-heap-data-structure
+- https://www.codingdrills.com/tutorial/heap-data-structure/introduction-to-heap-data-structure
 - https://www.youtube.com/watch?v=Dvq-YKeuO9Y 
 
 
@@ -231,7 +222,7 @@ The terms "hash table" and "dictionary" are often used interchangeably in the co
 ## Questions and Considerations:
 
 - **Dictionary Mechanism**:
-  - Variant of hashing that puts a key into a hash function to create a memory location.
+  - A variant of hashing that puts a key into a hash function to create a memory location.
 - **Understanding Hash Functions**:
   - What they are and how they can achieve O(1) time complexity.
 - **Collision Detection and Handling**:
@@ -241,15 +232,16 @@ The terms "hash table" and "dictionary" are often used interchangeably in the co
 
 # Sort Algorithms
 ## CODE
-- sort_implementation.cpp (logic + ploblem solving)
+- sort_implementation.cpp (logic)
+- Only do merge sort and linear sort
 ## QUESTION
-- Solve the Sort by hands.
+- Solve the Sort by hand.
 
 # Search Algorithms
 ## CODE
 - sort_implementation.cpp (Code + logic)
 ## QUESTION
-- Solve the Search by hands.
+- Solve the Search by hand.
 
 ## Binary Search 
 
@@ -293,7 +285,7 @@ The terms "hash table" and "dictionary" are often used interchangeably in the co
 ## Tree Search
 
 - **Depth First Search**:
-- **Breadth First Search** (Code + Logic): 
-  - **In-order Traversal**: Traverses left subtree, root, then right subtree.
+- **Breadth-First Search** (Code + Logic): 
+  - **In-order Traversal**: Traverses left subtree, root, then right subtree. 
   - **Pre-order Traversal**: Traverses root, left subtree, then right subtree.
   - **Post-order Traversal**: Traverses left subtree, right subtree, then root.
